@@ -1,0 +1,27 @@
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+.STACK 100H
+.DATA
+
+
+.CODE
+MAIN PROC 
+  MOV AX, @DATA
+  MOV DS, AX
+  
+  MOV BX, 0
+  MOV CX, 5
+  
+  START:
+  CMP BX, CX
+  JE LAST 
+  PRINT "BLA "
+  INC BX
+  JMP START
+  
+  LAST:
+  PRINTN " ... "   
+  
+MAIN ENDP
+
+END MAIN
